@@ -1,29 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>NYT</title>
-
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/style.css">
-
 </head>
-
 <body>
-
-
-
-  <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand" href="#" id="nav">
-      <img src="..." width="30" height="30" class="d-inline-block align-top" alt="">
-      New York Times Search
-    </a>
-  </nav>
-
+  <header id="header">
+    <img src="..." width="30" height="30" class="d-inline-block align-top" alt="">
+    New York Times Search
+  </header>
   <div class="container-fluid">
     <div class="row-one">
       <div class="col-md-12">
@@ -43,7 +32,7 @@
       <div class="col-md-12">
         <label for="exampleFormControlSelect1">Number of Records to Retrieve: </label>
       </div>
-      <div class="row">
+      <div class="row-four">
         <div class="col-md-12">
           <div class="form-group">
             <select class="form-control" id="NumberOfRecords">
@@ -57,7 +46,6 @@
         </div>
       </div>
     </div>
-
     <div class="row-four">
       <div class="col-md-12">
         <div class="form-group">
@@ -66,7 +54,6 @@
         </div>
       </div>
     </div>
-
     <div class="row-five">
       <div class="col-md-12">
         <div class="form-group">
@@ -76,91 +63,44 @@
         </form>
       </div>
     </div>
-
-
-
-    <div class="row six">
-
-      <div class="searchButton">
-
-        <button>Search</button>
+    <div class="row-six">
+      <div class="col-md-3" id="search">
+        <button><span class="glyphicon glyphicon-search"></span> Search</button>
       </div>
-
-      <div class="clearResults">
-
+      <div class="col-md-3" id="results">
         <button>Clear Results</button>
       </div>
-
-
     </div>
-
-
-
-    <div class="row seven">
-
-      <div class="topArticles">
+  </div>
+  <div class="container-fluid" id="articleContainer">
+    <div class="row-eight" id="topArticles">
+      <div class="col-md-12">
         Top Articles
       </div>
-
-
-
     </div>
-    <div class="row eight">
-
-      <div class="ShowTopArticles">
+    <div class="row-nine" id="articles">
+      <div class="col-md-12">
         Top articles go here.
       </div>
     </div>
-
-
-
-    <div class="row nine">
-
-      <div class="card-footer bg-transparent border-dark text-center">Made with lots and lots of love</div>
-    </div>
   </div>
-
-
-  </div>
-
-
-
-
-
-
-  </div>
-
-
-
-
-
-
-  </div>
-
-
-
-
-
-
-
-
+  <footer class="card-footer bg-transparent border-dark text-center">Made with lots and lots of love<span class="glyphicon">&#xe005;</span></footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript">
-
-
-
+    // https://api.nytimes.com/svc/search/v2/articlesearch.json
+    // https://api.nytimes.com/svc/search/v2/articlesearch.json?q=election&api-key=yourkey
     var apiKey = "p1iIkitzf2bmFAXaai1aiaNLcflxmM8m";
-    var searchTerm = "#searchTerm";
-    var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=worldcup" + apiKey;
-
+    var searchTerm = "world cup";
+    var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + searchTerm + "&api-key=" + apiKey;
     $.ajax({
       url: queryURL,
       method: "GET"
-    }).then(function (response) {
-      console.log(response);
+    }).then(function (res) {
+      var data = res.response.docs;
+      var headline = data[0].headline.main;
+      console.log(data);
+      console.log(headline);
     })
-
   </script>
-
 </body>
-
 </html>
