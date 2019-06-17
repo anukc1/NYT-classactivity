@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>NYT</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/style.css">
+
+</head>
+
+<body>
+
+
+
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#" id="nav">
+      <img src="..." width="30" height="30" class="d-inline-block align-top" alt="">
+      New York Times Search
+    </a>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row-one">
+      <div class="col-md-12">
+        <h4>Search Perameters</h4>
+      </div>
+    </div>
+    <div class="row-two">
+      <div class="col-md-12">
+        <form>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Search Term</label>
+            <input type="email" class="form-control" id="searchTerm" placeholder="name@example.com">
+          </div>
+      </div>
+    </div>
+    <div class="row-three">
+      <div class="col-md-12">
+        <label for="exampleFormControlSelect1">Number of Records to Retrieve: </label>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <select class="form-control" id="NumberOfRecords">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row-four">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Start Year(Optional)</label>
+          <input type="email" class="form-control" id="StartYear" placeholder="name@example.com">
+        </div>
+      </div>
+    </div>
+
+    <div class="row-five">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">End Year(Optional)</label>
+          <input type="email" class="form-control" id="EndYear" placeholder="name@example.com">
+        </div>
+        </form>
+      </div>
+    </div>
+
+
+
+    <div class="row six">
+
+      <div class="searchButton">
+
+        <button>Search</button>
+      </div>
+
+      <div class="clearResults">
+
+        <button>Clear Results</button>
+      </div>
+
+
+    </div>
+
+
+
+    <div class="row seven">
+
+      <div class="topArticles">
+        Top Articles
+      </div>
+
+
+
+    </div>
+    <div class="row eight">
+
+      <div class="ShowTopArticles">
+        Top articles go here.
+      </div>
+    </div>
+
+
+
+    <div class="row nine">
+
+      <div class="card-footer bg-transparent border-dark text-center">Made with lots and lots of love</div>
+    </div>
+  </div>
+
+
+  </div>
+
+
+
+
+
+
+  </div>
+
+
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+  <script type="text/javascript">
+
+
+
+    var apiKey = "p1iIkitzf2bmFAXaai1aiaNLcflxmM8m";
+    var searchTerm = "#searchTerm";
+    var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=worldcup" + apiKey;
+
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function (response) {
+      console.log(response);
+    })
+
+  </script>
+
+</body>
+
+</html>

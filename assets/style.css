@@ -1,0 +1,18 @@
+#nav {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: white;
+    font-size: 25px;
+    background-color: darkblue;
+}
+
+.container-fluid {
+    border: 1px solid lightgrey;
+}
+
+
+.row-one {
+    background-color: lightgrey;
+    width: 100%;
+}
